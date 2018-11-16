@@ -20,12 +20,24 @@ public class Submission {
 
     public int getHours() { return hours; }
 
+    public String getCourse() { return course; }
+
+    public ArrayList<Integer> getExercises() { return exercises; }
+
+    public boolean anyDone() {
+        for (int ex: exercises) {
+            if (ex != 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
-        return course +
-                ", viikko "+ week +
-                " tehtyjä tehtäviä yhteensä " + exercises.size() +
+        return "\nViikko: " + week + ": \n" +
+                "\rtehtyjä tehtäviä " + exercises.size() +
                 " aikaa kului " + hours +
-                " tehdyt tehtävät " + exercises;
+                " tehdyt tehtävät " + exercises + "\n";
     }
 }
